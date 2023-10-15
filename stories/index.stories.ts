@@ -26,7 +26,7 @@ interface ArgTypes {
 
 const Template: Story<ArgTypes> = ({
   title = 'Hello world',
-  counter = 5,
+  counter = 15,
   textColor,
   slot,
 }: ArgTypes) => html`

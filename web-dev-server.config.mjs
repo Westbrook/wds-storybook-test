@@ -21,6 +21,12 @@ export default /** @type {import('@web/dev-server').DevServerConfig} */ ({
   plugins: [
     /** Use Hot Module Replacement by uncommenting. Requires @open-wc/dev-server-hmr plugin */
     // hmr && hmrPlugin({ exclude: ['**/*/node_modules/**/*'], presets: [presets.litElement] }),
+    {
+      name: 'append-to-body-plugin',
+      transform() {
+        // context.response.body += '<p>This is a test</p>';
+      },
+  },
   ],
 
   // See documentation for all available options

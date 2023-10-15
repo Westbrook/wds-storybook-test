@@ -1,0 +1,22 @@
+diff --git a/node_modules/@web/dev-server-core/dist/server/DevServer.js b/node_modules/@web/dev-server-core/dist/server/DevServer.js
+index 26561b9..b23991e 100644
+--- a/node_modules/@web/dev-server-core/dist/server/DevServer.js
++++ b/node_modules/@web/dev-server-core/dist/server/DevServer.js
+@@ -9,7 +9,7 @@ const util_1 = require("util");
+ const createServer_1 = require("./createServer");
+ const WebSocketsManager_1 = require("../web-sockets/WebSocketsManager");
+ class DevServer {
+-    constructor(config, logger, fileWatcher = chokidar_1.default.watch([])) {
++    constructor(config, logger, fileWatcher = chokidar_1.default.watch([]), externalServer) {
+         this.config = config;
+         this.logger = logger;
+         this.fileWatcher = fileWatcher;
+@@ -30,6 +30,8 @@ class DevServer {
+                     this.connections.delete(connection);
+                 });
+             });
++        } else if (externalServer) {
++            this.webSockets = new WebSocketsManager_1.WebSocketsManager(externalServer);
+         }
+     }
+     async start() {
