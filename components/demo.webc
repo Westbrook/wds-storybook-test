@@ -1,0 +1,12 @@
+<script webc:type="render" type="module">
+async function demo() {
+    if(!this.name) {
+        throw new Error("oh no you didn’t");
+    }
+    console.log(__dirname, `../dist/stories/index.stories.js`);
+    const csf = await import(`../dist/stories/index.stories.js`);
+    console.log(csf);
+    const metadata = csf.default;
+    return `<h1>${metadata.title}</h1>`;
+}
+</script>

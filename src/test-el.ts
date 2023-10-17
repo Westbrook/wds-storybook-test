@@ -1,3 +1,3 @@
 import { TestEl } from './TestEl.js';
 
-window.customElements.define('test-el', TestEl);
+customElements.define('test-el', TestEl);
